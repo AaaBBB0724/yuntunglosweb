@@ -4,7 +4,7 @@
 let currentProjectIndex = 0;
 let currentImageIndex = 0;
 
-function openLightbox(projectIndex, imgIndex = 0) {
+function openLightbox(projectIndex, imgIndex = 0, event) {
   event.stopPropagation();
   currentProjectIndex = projectIndex;
   currentImageIndex = imgIndex;
