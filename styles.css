@@ -1,0 +1,222 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  overflow-x: hidden; /* 防止水平滾動條 */
+}
+
+header {
+  position: fixed; /* 保持在網頁頂端 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between; /* 讓導航和社群連結分開在兩側 */
+  align-items: center;
+  z-index: 1000; /* 確保在最上層 */
+  border-bottom: 1px solid #ccc;
+  box-sizing: border-box; /* 確保內邊距不影響寬度 */
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  font-size: 13px;
+  margin-right: 15px;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  font-size: 13px;
+  margin-left: 15px;
+}
+
+/* 主要內容區域的包裹器，用於左右留白 */
+.main-content-wrapper {
+  display: flex;
+  padding-top: 60px; /* 留出 header 的高度 */
+  padding-left: 5%; /* 左留5% */
+  padding-right: 10%; /* 右留10% */
+  box-sizing: border-box;
+  width: 100%; /* 佔滿整個視窗寬度 */
+  position: relative; /* 為了讓內部元素絕對定位或滾動 */
+}
+
+/* 左側欄 */
+.left-column {
+  width: 25%; /* 根據圖片參考，左欄佔內容區的約25% */
+  padding: 20px;
+  box-sizing: border-box;
+  position: sticky; /* 嘗試使用 sticky 定位 */
+  top: 60px; /* 粘在 header 下方 */
+  height: calc(100vh - 60px); /* 扣除 header 高度 */
+  /* 移除 overflow-y: auto; 以取消滾動 */
+  /* background-color: #f9f9f9; /* 方便觀察 */ */
+}
+
+/* 右側欄 - 捲軸在這裡 */
+.right-column {
+  width: 75%; /* 佔內容區的約75% */
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* 讓所有作品卡片靠右貼齊 */
+  gap: 40px;
+
+  /* 不需要在這裡直接設置 scroll-behavior: smooth; 因為我們在JS中控制 */
+}
+
+/* section 樣式 */
+.section {
+  margin-bottom: 40px;
+}
+.section h2 {
+  font-size: 18px; /* 從 18px 改回 24px */
+  margin-bottom: 10px;
+}
+.section h3 {
+  font-size: 16px; /* 從 16px 改回 18px */
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.section ol {
+  list-style: none; /* 移除預設列表點 */
+  padding: 0;
+}
+.section li a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px; /* 從 14px 改回 16px */
+  line-height: 1.5;
+}
+
+/* 作品卡片 (重大修改：調整寬度以適應文字和圖片) */
+.project-card {
+  background: #fff;
+  /* 總寬度 = 文字寬度 + 圖片寬度 */
+  width: calc(260px + 346px); /* 260px 是文字區塊的寬度，346px 是圖片的寬度 */
+  display: flex; /* 使用 Flexbox 實現文字在左，圖片在右 */
+  flex-direction: row; /* 水平排列 */
+  justify-content: flex-end; /* 讓整體卡片內容靠右 */
+  align-items: flex-start; /* 頂部對齊 */
+  overflow: hidden; /* 防止卡片內容溢出自身邊界 */
+  transition: transform 0.3s;
+  cursor: pointer;
+  /* 移除以下兩行，因為滾動行為應由 .right-column 控制 */
+  /* overflow-y: auto; */
+  /* scroll-behavior: smooth; */
+}
+.project-card:hover {
+  transform: scale(1.01);
+}
+
+/* 作品資訊文字區塊 (重大修改：固定寬度) */
+.project-info {
+  width: 260px; /* 固定文字區塊的寬度為圖片寬度的 75% (346 * 0.75 ≈ 259.5，取 260) */
+  flex-shrink: 0; /* 防止收縮 */
+  padding: 20px 15px; /* 調整內邊距，左右各 15px，讓文字更靠近邊緣 */
+  color: #333;
+  font-size: 14px;
+  
+  position: relative; /* 設置為相對定位，以便內部絕對定位的 h4 參考 */
+  height: 346px; /* 讓文字區域高度與圖片相同 */
+  display: flex; /* 讓 project-details 在底部 */
+  flex-direction: column;
+  justify-content: flex-end; /* 將 project-details 推到底部 */
+}
+
+.project-info h4 {
+  font-size: 18px; /* 從 16px 改回 18px */
+  text-align: left; /* 作品名稱靠左 */
+  
+  position: absolute; /* 絕對定位作品名稱 */
+  top: 25%; /* 距離 project-info 頂部 25% */
+  left: 15px; /* 距離 project-info 左邊界 15px (與 padding 保持一致) */
+  transform: translateY(-50%); /* 微調：使其垂直居中在 25% 的位置上 */
+  width: calc(100% - 30px); /* 寬度配合 padding (15px + 15px) */
+}
+
+/* 其他說明文字的容器 (保持不變) */
+.project-details {
+  display: flex;
+  flex-direction: column; /* 垂直堆疊內部元素 */
+  align-items: flex-start; /* 內部元素靠左對齊 */
+}
+
+/* 日期與課程的容器 (保持不變) */
+.date-course-wrapper {
+  display: flex; /* 讓日期和課程水平排列 */
+  justify-content: space-between; /* 日期靠右，課程靠左 */
+  width: 100%; /* 佔滿可用寬度 */
+  margin-bottom: 5px; /* 與媒材的間距 */
+}
+
+.date-course-wrapper p {
+    margin: 0; /* 移除內部段落的默認外邊距 */
+    line-height: 1.2;
+}
+
+.project-info .material {
+  margin-bottom: 5px; /* 與描述的間距 */
+  text-align: left; /* 媒材靠左 */
+  line-height: 1.2;
+}
+
+.project-info .description {
+  text-align: left; /* 描述靠左 */
+  line-height: 1.4;
+}
+
+
+.project-card img {
+  width: 346px;
+  height: 346px;
+  object-fit: cover;
+}
+
+/* Lightbox 樣式 */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  text-align: center;
+}
+.lightbox-content {
+  margin-top: 15px;
+  width: 50%;
+  max-width: 660px;
+}
+.close, .prev, .next {
+  position: absolute;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+}
+.close { top: 20px; right: 30px; }
+.prev { top: 50%; left: 10px; transform: translateY(-50%); }
+.next { top: 50%; right: 10px; transform: translateY(-50%); }
