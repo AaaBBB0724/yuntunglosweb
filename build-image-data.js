@@ -6,7 +6,7 @@ const path = require('path');
 
 const baseImagePath = 'img'; // 您的圖片根目錄
 const outputFilePath = 'scripts/image-data.js'; // 生成的 JS 檔案路徑
-const projectFolders = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7']; // 您的專案資料夾名稱
+const projectFolders = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10', 'p11']; // 您的專案資料夾名稱
 
 let imageGroups = [];
 

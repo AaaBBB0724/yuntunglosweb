@@ -4,8 +4,7 @@
 let currentProjectIndex = 0;
 let currentImageIndex = 0;
 
-function openLightbox(projectIndex, imgIndex = 0, event) {
-  event.stopPropagation();
+function openLightbox(projectIndex, imgIndex = 0) {
   currentProjectIndex = projectIndex;
   currentImageIndex = imgIndex;
   const lightbox = document.getElementById('lightbox');
@@ -24,7 +23,7 @@ function closeLightbox() {
 }
 
 function changeSlide(n) {
-  event.stopPropagation();
+  if(event) event.stopPropagation();
   const currentProjectImages = imageGroups[currentProjectIndex];
   if (!currentProjectImages || currentProjectImages.length === 0) return;
 

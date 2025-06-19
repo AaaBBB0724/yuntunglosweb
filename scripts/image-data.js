@@ -5,16 +5,11 @@ const imageGroups = [
     "img/p1/1.jpg",
     "img/p1/2.jpg",
     "img/p1/3.jpg",
-    "img/p1/4.jpg"
+    "img/p1/4.jpg",
+    "img/p1/5.jpg"
   ],
   [
-    "img/p2/1.jpg",
-    "img/p2/2.jpg",
-    "img/p2/3.jpg",
-    "img/p2/4.jpg",
-    "img/p2/5.jpg",
-    "img/p2/6.jpg",
-    "img/p2/7.jpg"
+    "img/p2/1.jpg"
   ],
   [
     "img/p3/1.jpg",
@@ -24,21 +19,12 @@ const imageGroups = [
   ],
   [
     "img/p4/1.jpg",
-    "img/p4/10.jpg",
-    "img/p4/11.jpg",
-    "img/p4/12.jpg",
-    "img/p4/13.jpg",
-    "img/p4/14.jpg",
-    "img/p4/15.jpg",
-    "img/p4/16.jpg",
     "img/p4/2.jpg",
     "img/p4/3.jpg",
     "img/p4/4.jpg",
     "img/p4/5.jpg",
     "img/p4/6.jpg",
-    "img/p4/7.jpg",
-    "img/p4/8.jpg",
-    "img/p4/9.jpg"
+    "img/p4/7.jpg"
   ],
   [
     "img/p5/1.jpg",
@@ -47,11 +33,44 @@ const imageGroups = [
     "img/p5/4.jpg"
   ],
   [
-    "img/p6/1.jpg",
-    "img/p6/2.jpg",
-    "img/p6/3.jpg"
+    "img/p6/1.jpg"
   ],
   [
-    "img/p7/1.jpg"
+    "img/p7/1.jpg",
+    "img/p7/10.jpg",
+    "img/p7/11.jpg",
+    "img/p7/12.jpg",
+    "img/p7/13.jpg",
+    "img/p7/14.jpg",
+    "img/p7/15.jpg",
+    "img/p7/16.jpg",
+    "img/p7/2.jpg",
+    "img/p7/3.jpg",
+    "img/p7/4.jpg",
+    "img/p7/5.jpg",
+    "img/p7/6.jpg",
+    "img/p7/7.jpg",
+    "img/p7/8.jpg",
+    "img/p7/9.jpg"
+  ],
+  [
+    "img/p8/1.jpg",
+    "img/p8/2.jpg",
+    "img/p8/3.jpg",
+    "img/p8/4.jpg"
+  ],
+  [
+    "img/p9/1.jpg",
+    "img/p9/2.jpg",
+    "img/p9/3.jpg",
+    "img/p9/4.jpg"
+  ],
+  [
+    "img/p10/1.jpg",
+    "img/p10/2.jpg",
+    "img/p10/3.jpg"
+  ],
+  [
+    "img/p11/1.jpg"
   ]
 ];
