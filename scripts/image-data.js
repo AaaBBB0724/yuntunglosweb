@@ -72,5 +72,11 @@ const imageGroups = [
   ],
   [
     "img/p11/1.jpg"
+  ],
+  [
+    "img/p12/1.jpg"
+  ],
+  [
+    "img/p13/1.jpg"
   ]
 ];
